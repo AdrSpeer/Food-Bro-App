@@ -1,5 +1,5 @@
 import data from "../../../public/data";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { Link } from "react-router-dom";
 import "./Searchbar.css";
@@ -8,6 +8,7 @@ const Searchbar = () => {
   console.log(data);
   //   useState und useEffect
   const [searchInput, setSearchInput] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
   const [placeholderVisible, setPlaceholderVisible] = useState(true);
 
   //   Placeholder onFocus leeren/füllen
@@ -16,14 +17,25 @@ const Searchbar = () => {
   };
   const handleBlur = () => {
     setPlaceholderVisible(true);
+    setFilteredData([""]);
+  };
+  //   Suche aller Gerichte
+  const searchAll = (e) => {
+    const inputValue = e.target.value;
+    setSearchInput(inputValue);
+    const filteredData = data.filter((item) =>
+      item.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    setFilteredData(filteredData);
+    console.log(filteredData);
   };
 
   return (
     <section className="searchbar">
-      <div className="searchbox">
-        <SearchRoundedIcon />
+      <div className="searchbar-box">
+        <SearchRoundedIcon className="fi" />
         <input
-          onChange={(e) => setSearchInput(e.target.value)}
+          onChange={searchAll}
           value={searchInput}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -31,6 +43,16 @@ const Searchbar = () => {
           type="text"
           name="searchbar"
         />
+        <div
+          id="results-search"
+          className={searchInput < 1 ? "hidden" : "suggestions"}
+        >
+          {filteredData.length > 0 ? (
+            filteredData.map((meal) => <Link key={meal.id}>{meal.name}</Link>)
+          ) : (
+            <p>No results</p>
+          )}
+        </div>
       </div>
     </section>
   );
