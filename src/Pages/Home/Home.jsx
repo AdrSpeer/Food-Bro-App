@@ -4,10 +4,10 @@ import "./Home.css";
 
 const Home = () => {
     return (
-        <>
+        <section className="home-container">
           <Searchbar/>
           <Footer/>
-        </>
+        </section>
     );
 }
  

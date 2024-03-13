@@ -3,7 +3,11 @@ import "./Profile.css";
 
 const Profile = () => {
     return (
-        <section>
+        <section className="profile-container">
+            <div className="profile-t-container">
+            <h2 className="profile-title">DEIN PROFIL</h2>
+            </div> 
+            <div className="balken"></div>
             <Footer/>
         </section>
     );

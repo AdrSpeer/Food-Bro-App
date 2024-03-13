@@ -8,10 +8,10 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
     return (
         <section className="footer-container">
-            <NavLink to="/"><HomeIcon/></NavLink>
-            <NavLink to="/favourites"><FavoriteIcon/></NavLink>
-            <NavLink to="/cart"><ShoppingBasketIcon/></NavLink>
-            <NavLink to="/profile"><AccountCircleIcon/></NavLink>
+            <NavLink to="/"><HomeIcon fontSize="inherit"/></NavLink>
+            <NavLink to="/favourites" ><FavoriteIcon fontSize="inherit"/></NavLink>
+            <NavLink to="/cart"><ShoppingBasketIcon fontSize="inherit"/></NavLink>
+            <NavLink to="/profile"><AccountCircleIcon fontSize="inherit"/></NavLink>
         </section>
     );
 }
