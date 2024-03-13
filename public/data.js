@@ -1,5 +1,6 @@
 const foodTable = [
     {
+        id: 0,
         name: "Big Beef Burger",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -9,6 +10,7 @@ const foodTable = [
         rating: "4.1"
     },
     {
+        id: 1,
         name: "Double Beef Burger",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -18,6 +20,7 @@ const foodTable = [
         rating: "4.4"
     },
     {
+        id: 2,
         name: "Tripple Beef Burger",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -27,6 +30,7 @@ const foodTable = [
         rating: "3.8"
     },
     {
+        id: 3,
         name: "Chicken Baguette",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -36,6 +40,7 @@ const foodTable = [
         rating: "2.9"
     },
     {
+        id: 4,
         name: "Chicken Burger",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -45,6 +50,7 @@ const foodTable = [
         rating: "5.0"
     },
     {
+        id: 5,
         name: "Pizza Salami",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -54,6 +60,7 @@ const foodTable = [
         rating: "1.4"
     },
     {
+        id: 6,
         name: "Pizza Speciale",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -63,6 +70,7 @@ const foodTable = [
         rating: "2.6"
     },
     {
+        id: 7,
         name: "Crispy Chicken Wrap",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -72,6 +80,7 @@ const foodTable = [
         rating: "4.9"
     },
     {
+        id: 8,
         name: "Wrap Speciale",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -81,6 +90,7 @@ const foodTable = [
         rating: "4.7"
     },
     {
+        id: 9,
         name: "Cheesy Hotdog",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -90,6 +100,7 @@ const foodTable = [
         rating: "3.9"
     },
     {
+        id: 10,
         name: "Meat Taco",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -99,6 +110,7 @@ const foodTable = [
         rating: "4.1"
     },
     {
+        id: 11,
         name: "Taco Speciale",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -108,6 +120,7 @@ const foodTable = [
         rating: "2.4"
     },
     {
+        id: 12,
         name: "Onion Rings",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -117,6 +130,7 @@ const foodTable = [
         rating: "4.6"
     },
     {
+        id: 13,
         name: "Chicken Wings",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -126,6 +140,7 @@ const foodTable = [
         rating: "3.6"
     },
     {
+        id: 14,
         name: "Bacon-Egg Baguette",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -135,6 +150,7 @@ const foodTable = [
         rating: "3.5"
     },
     {
+        id: 15,
         name: "Cripsy Chicken Bites",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -144,6 +160,7 @@ const foodTable = [
         rating: "5.0"
     },
     {
+        id: 16,
         name: "Tortilla Party",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -153,6 +170,7 @@ const foodTable = [
         rating: "4.0"
     },
     {
+        id: 17,
         name: "Strawberry Cream Shake",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -162,6 +180,7 @@ const foodTable = [
         rating: "3.0"
     },
     {
+        id: 18,
         name: "Potato Salad Deluxe",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -171,6 +190,7 @@ const foodTable = [
         rating: "3.8"
     },
     {
+        id: 19,
         name: "Chilli Concarne",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -180,6 +200,7 @@ const foodTable = [
         rating: "4.8"
     },
     {
+        id: 20,
         name: "Strawberry Ice Cream",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -189,6 +210,7 @@ const foodTable = [
         rating: "2.9"
     },
     {
+        id: 21,
         name: "Potion of Fries",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -198,6 +220,7 @@ const foodTable = [
         rating: "3.2"
     },
     {
+        id: 22,
         name: "Extra Salted Fries",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -207,6 +230,7 @@ const foodTable = [
         rating: "4.5"
     },
     {
+        id: 23,
         name: "Chicken Nuggets",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
@@ -216,6 +240,7 @@ const foodTable = [
         rating: "4.9"
     },
     {
+        id: 24,
         name: "Crispy Chicken Filets",
         shortdesc: "lorem ipsum",
         longdesc: "bla bla bla bla bla bla",
