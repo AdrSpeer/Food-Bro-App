@@ -3,6 +3,7 @@ import "./Cart.css";
 const Cart = () => {
     return (
         <>
+            <Footer/>
         </>
     );
 }

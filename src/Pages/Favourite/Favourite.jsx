@@ -2,6 +2,7 @@ import "./Favourite.css";
 const Favourite = () => {
     return (
         <>
+            <Footer/>
         </>
     );
 }
