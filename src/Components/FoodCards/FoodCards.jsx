@@ -3,7 +3,9 @@ import data from "../../../public/data";
 import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRounded";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { FavoriteContext } from "../../Context/Context";
 
 const FoodCards = (props) => {
 
@@ -19,11 +21,22 @@ const FoodCards = (props) => {
     }
   }, [props.activeCategory]);
 
+  const { favoriteItems, setFavoriteItems } = useContext(FavoriteContext);
+
+  const addFavorite = (itemID) => {
+    console.log(favoriteItems);
+    if(favoriteItems.includes(itemID)) {
+      alert("Dieses Produkt befindet sich bereits in deiner Favoritenliste.")
+    } else {
+      setFavoriteItems([...favoriteItems, itemID])
+    }
+  };
+
   return (
     <section className="foodcard">
       {filteredItems.map((allData) => (
-        <Link to={`/product/${allData.id}`}>
-          <div className="foodcard-box" key={String(allData.id)}>
+        <Link to={`/product/${allData.id}`} key={allData.id}>
+          <div className="foodcard-box" >
             <div className="foodcard-rate">
               <StarIcon style={{ fill: "#ffc700" }} />
               <p>{allData.rating}</p>
@@ -35,13 +48,15 @@ const FoodCards = (props) => {
               <h2>{allData.name}</h2>
               <p>{allData.shortdesc}</p>
             </div>
-
             <div className="foodcard-price">
               <p>${allData.price}</p>
               <AddCircleOutlineRoundedIcon />
             </div>
+            <div className="favo-icon">
+              <FavoriteIcon onClick={() => addFavorite(allData.id)} className={`${favoriteItems.includes(allData.id) ? "favo-active" : "" }`}/>
+            </div>
           </div>
-        </Link>
+          </Link>
       ))}
     </section>
   );

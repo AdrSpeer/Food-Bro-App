@@ -15,7 +15,19 @@
   border-radius: 10px;
 }
 
+.favo-icon {
+  position: absolute;
+  right: 2vw;
+  top: 2vw;
+  color: white;
+}
+
+.favo-active {
+  color: rgb(221, 0, 0);
+}
+
 .foodcard-box {
+  position: relative;
   background-color: #181818;
   border-radius: 10px;
   display: flex;
