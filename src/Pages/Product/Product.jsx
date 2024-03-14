@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 const Product = () => {
-  const [filteredData, setFilterdData] = useState([]);
+  const [filteredData, setFilterdData] = useState({});
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
@@ -14,7 +14,7 @@ const Product = () => {
   console.log(filteredData);
   return (
     <section className="product">
-      <img src={filteredData.image} alt={filteredData.name} />
+      <img src={`../${filteredData.image}`} alt={filteredData.name} />
       <p>{filteredData.name}</p>
     </section>
   );

@@ -6,9 +6,10 @@ const foodTable = [
     longdesc: "bla bla bla bla bla bla",
     category: "Burger",
     price: 8.99,
-    image: "./img/1.png",
+    image: "./img/1.png ",
     rating: "4.1",
   },
+
   {
     id: 1,
     name: "Double Beef Burger",
