@@ -42,7 +42,7 @@ const Searchbar = () => {
           placeholder={placeholderVisible ? "Search" : ""}
           type="text"
           name="searchbar"
-          autocomplete="off"
+          autoComplete="off"
         />
         <div
           id="results-search"
