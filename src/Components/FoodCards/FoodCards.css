@@ -1,0 +1,52 @@
+.foodcard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: white;
+  gap: 3vw;
+  margin: 3vw 4vw;
+}
+.foodcard-rate {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  background-color: #48484871;
+  width: fit-content;
+  padding: 0.8vw;
+  border-radius: 10px;
+}
+
+.foodcard-box {
+  background-color: #181818;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+.foodcard-box h2 {
+  font-size: 1rem;
+  margin-bottom: 2vw;
+}
+.foodcard-img {
+  display: flex;
+  justify-content: center;
+}
+.foodcard-box img {
+  max-width: 50%;
+}
+
+.foodcard-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2vw;
+}
+.foodcard-content p {
+  color: #929292;
+}
+
+.foodcard-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2vw;
+  margin-bottom: 2vw;
+}

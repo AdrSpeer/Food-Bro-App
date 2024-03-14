@@ -18,6 +18,9 @@ const Searchbar = () => {
   const handleBlur = () => {
     setPlaceholderVisible(true);
     setFilteredData([""]);
+    if (filteredData === "") {
+      document.getElementById("results-search").classList.add("hide-box");
+    }
   };
   //   Suche aller Gerichte
   const searchAll = (e) => {
@@ -42,14 +45,16 @@ const Searchbar = () => {
           placeholder={placeholderVisible ? "Search" : ""}
           type="text"
           name="searchbar"
-          autocomplete="off"
+          autoComplete="off"
         />
         <div
           id="results-search"
           className={searchInput < 1 ? "hidden" : "suggestions"}
         >
           {filteredData.length > 0 ? (
-            filteredData.map((meal) => <Link key={meal.id}>{meal.name}</Link>)
+            filteredData.map((meal) => (
+              <Link key={String(meal.id)}>{meal.name}</Link>
+            ))
           ) : (
             <p>No results</p>
           )}

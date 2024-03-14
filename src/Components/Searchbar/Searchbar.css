@@ -1,6 +1,9 @@
 .hidden {
   display: none;
 }
+.hide-box {
+  display: none;
+}
 
 .searchbar {
   display: flex;
@@ -61,8 +64,4 @@
   color: black;
   padding: 0.5vw 0;
   padding-left: 2vw;
-}
-
-svg {
-  fill: white;
 }
