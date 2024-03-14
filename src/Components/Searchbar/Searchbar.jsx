@@ -32,7 +32,7 @@ const Searchbar = () => {
   return (
     <section className="searchbar">
       <div className="searchbar-box">
-        <SearchRoundedIcon />
+        <SearchRoundedIcon style={{ color: "white" }} />
         <input
           onChange={searchAll}
           value={searchInput}

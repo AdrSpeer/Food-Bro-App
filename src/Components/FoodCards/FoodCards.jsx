@@ -25,7 +25,7 @@ const FoodCards = () => {
               <p>${allData.price}</p>
               <AddCircleOutlineRoundedIcon />
             </div>
-          </div>{" "}
+          </div>
         </Link>
       ))}
     </section>
