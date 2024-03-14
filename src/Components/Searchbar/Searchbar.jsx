@@ -17,12 +17,8 @@ const Searchbar = () => {
   };
   const handleBlur = () => {
     setPlaceholderVisible(true);
-    setFilteredData([""]);
-    if (filteredData === "") {
-      document.getElementById("results-search").classList.add("hide-box");
-    }
   };
-  //   Suche aller Gerichte
+  // Suche aller Gerichte
   const searchAll = (e) => {
     const inputValue = e.target.value;
     setSearchInput(inputValue);
@@ -40,10 +36,10 @@ const Searchbar = () => {
         <input
           onChange={searchAll}
           value={searchInput}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
           placeholder={placeholderVisible ? "Search" : ""}
           type="text"
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           name="searchbar"
           autoComplete="off"
         />
@@ -53,7 +49,9 @@ const Searchbar = () => {
         >
           {filteredData.length > 0 ? (
             filteredData.map((meal) => (
-              <Link key={String(meal.id)}>{meal.name}</Link>
+              <Link to={`/product/${meal.id}`} key={String(meal.id)}>
+                {meal.name}
+              </Link>
             ))
           ) : (
             <p>No results</p>
