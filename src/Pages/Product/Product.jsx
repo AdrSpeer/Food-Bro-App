@@ -3,6 +3,8 @@ import data from "../../../public/data";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import Footer from "../../Components/Footer/Footer";
+
 const Product = () => {
   const [filteredData, setFilterdData] = useState({});
   const { id } = useParams();
@@ -16,6 +18,7 @@ const Product = () => {
     <section className="product">
       <img src={`../${filteredData.image}`} alt={filteredData.name} />
       <p>{filteredData.name}</p>
+      <Footer />
     </section>
   );
 };
