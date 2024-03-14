@@ -48,10 +48,18 @@
   z-index: 1;
   background-color: white;
   align-items: flex-start;
+  max-height: 25vw;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .suggestions a {
   color: black;
-  padding: 0.2vw 0;
+  padding: 0.5vw 0;
+  padding-left: 2vw;
+}
+.suggestions p {
+  color: black;
+  padding: 0.5vw 0;
   padding-left: 2vw;
 }
 

@@ -33,7 +33,7 @@ const Searchbar = () => {
   return (
     <section className="searchbar">
       <div className="searchbar-box">
-        <SearchRoundedIcon className="fi" />
+        <SearchRoundedIcon />
         <input
           onChange={searchAll}
           value={searchInput}
@@ -42,6 +42,7 @@ const Searchbar = () => {
           placeholder={placeholderVisible ? "Search" : ""}
           type="text"
           name="searchbar"
+          autocomplete="off"
         />
         <div
           id="results-search"
