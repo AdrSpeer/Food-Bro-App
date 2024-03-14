@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <section className="home-container">
       <Searchbar />
+      <Categories/>
       <FoodCards />
       <Footer />
     </section>
