@@ -1,0 +1,12 @@
+.scroll-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ff8a00;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+}
