@@ -3,10 +3,25 @@ import data from "../../../public/data";
 import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRounded";
 import StarIcon from "@mui/icons-material/Star";
 import { Link } from "react-router-dom";
-const FoodCards = () => {
+import { useEffect, useState } from "react";
+
+const FoodCards = (props) => {
+
+  
+  const [filteredItems, setFilteredItems] = useState(data);
+
+  useEffect(() => {
+    if(props.activeCategory.length === 0) {
+        setFilteredItems(data); 
+    } else {
+      const items = data.filter(item => item.category === props.activeCategory);
+      setFilteredItems(items); 
+    }
+  }, [props.activeCategory]);
+
   return (
     <section className="foodcard">
-      {data.map((allData) => (
+      {filteredItems.map((allData) => (
         <Link to={`/product/${allData.id}`}>
           <div className="foodcard-box" key={String(allData.id)}>
             <div className="foodcard-rate">

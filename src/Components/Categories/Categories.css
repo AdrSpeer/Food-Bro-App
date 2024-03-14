@@ -20,14 +20,17 @@
   border: none;
   background: none;
   text-transform: uppercase;
-  margin: 3vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 1vw;
   padding: 2vw;
   font-weight: 600;
 }
 
-.cate-btn:hover {
-  background-color: rgb(17, 17, 17);
+.cate-active {
+  background-color: #111111;
   border-radius: 0.5rem;
+  padding: 2vw;
 }
 
 .category-container::-webkit-scrollbar {

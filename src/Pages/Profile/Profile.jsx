@@ -1,6 +1,7 @@
 import Footer from "../../Components/Footer/Footer";
 import "./Profile.css";
 import userData from "../../../public/profiledata";
+import { useState } from "react";
 
 function getRandomDaten(array) {
     const randomIndex = Math.floor(Math.random() * array.length);
@@ -9,8 +10,13 @@ function getRandomDaten(array) {
 
 const Profile = () => {
 
-    const randomProfile = getRandomDaten(userData);
-    console.log(userData);
+    const [randomProfile, setRandomProfile] = useState();
+    
+    if(!randomProfile) {
+        setRandomProfile(getRandomDaten(userData))
+        return
+    }
+
     return (
         <section className="profile-container">
             <div className="profile-t-container">
