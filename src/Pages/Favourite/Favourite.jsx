@@ -2,6 +2,7 @@ import "./Favourite.css";
 import Footer from "../../Components/Footer/Footer";
 import { useContext } from "react";
 import { FavoriteContext } from "../../Context/Context";
+import StarIcon from '@mui/icons-material/Star';
 
 const Favourite = () => {
 
@@ -13,9 +14,14 @@ const Favourite = () => {
             <h2 className="favo-title">DEINE FAVORITEN</h2>
             </div> 
             <div className="balken"></div>
-            {favoriteItems.map((itemid, key) => (
+            {favoriteItems.map((item, key) => (
                 <div className="favorite-foodcard" key={key}>
-                    <p>{itemid}</p>
+                    <p className="favo-name">{item.name}</p>
+                    <p className="favo-shortdesc">{item.shortdesc}</p>
+                    <div className="price-rating">
+                        <p className="favo-price">{item.price} €</p>
+                        <p className="rating-star">{item.rating} <StarIcon fontSize="small" style={{ fill: "#ffc700", filter: "drop-shadow(0px 0px 5px #ffc700)"  }}/></p>
+                    </div>
                 </div>
             ))}
             <Footer/>

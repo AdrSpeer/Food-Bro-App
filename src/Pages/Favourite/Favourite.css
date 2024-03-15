@@ -1,8 +1,8 @@
 .favourite-container {
-  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 10vh;
 }
 
 .favo-title {
@@ -20,4 +20,39 @@
     rgba(255, 138, 0, 1) 50%,
     rgba(255, 138, 0, 0) 100%
   );
+}
+
+.price-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorite-foodcard {
+  color: white;
+  margin-top: 2vh;
+  background-color: #111111;
+  padding: 3vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  border-radius: 1rem;
+  width: 80vw;
+}
+
+.rating-star {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+
+.favo-name {
+  margin-bottom: 2vh;
+  color: #ff8a00;
+  font-size: 1.2rem;
+}
+
+.favo-shortdesc {
+  margin-bottom: 2vh;
+  color: rgb(168, 168, 168);
 }

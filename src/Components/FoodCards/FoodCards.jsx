@@ -23,12 +23,12 @@ const FoodCards = (props) => {
 
   const { favoriteItems, setFavoriteItems } = useContext(FavoriteContext);
 
-  const addFavorite = (itemID) => {
+  const addFavorite = (item) => {
     console.log(favoriteItems);
-    if(favoriteItems.includes(itemID)) {
+    if(favoriteItems.some(itemdata => item.id === itemdata.id)) {
       alert("Dieses Produkt befindet sich bereits in deiner Favoritenliste.")
     } else {
-      setFavoriteItems([...favoriteItems, itemID])
+      setFavoriteItems([...favoriteItems, item])
     }
   };
 
@@ -53,7 +53,7 @@ const FoodCards = (props) => {
               <AddCircleOutlineRoundedIcon />
             </div>
             <div className="favo-icon">
-              <FavoriteIcon onClick={() => addFavorite(allData.id)} className={`${favoriteItems.includes(allData.id) ? "favo-active" : "" }`}/>
+              <FavoriteIcon onClick={() => addFavorite(allData)} className={`${favoriteItems.some(itemdata => allData.id === itemdata.id) ? "favo-active" : "" }`}/>
             </div>
           </div>
           </Link>
