@@ -32,8 +32,9 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+
   gap: 2vw;
-  height: 35vh;
+  height: 40vh;
 }
 .foodcard-box h2 {
   font-size: 1rem;
@@ -54,14 +55,23 @@
   padding: 0 2vw;
   flex-grow: 1;
 }
-.foodcard-content p {
-  color: #929292;
-}
 
 .foodcard-price {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2vw;
+  margin-bottom: 2vw;
+}
+
+.foodcard-shortdesc {
+  width: 40vw;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  color: #929292;
+  padding: 1vw 2vw;
   margin-bottom: 2vw;
 }
