@@ -1,7 +1,10 @@
 import "./Cart.css";
+import { useContext } from "react";
 import Footer from "../../Components/Footer/Footer";
+import { CartItemsContext } from "../../Context/Context";
 
-const Cart = ({ cartItems }) => {
+const Cart = () => {
+  const { cartItems, setCartItems } = useContext(CartItemsContext);
   return (
     <section className="cart-container">
       <div className="profile-t-container">
@@ -11,16 +14,16 @@ const Cart = ({ cartItems }) => {
       {cartItems.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        <ul>
+        <div>
           {cartItems.map((item, index) => (
-            <li key={index}>
+            <div key={index}>
               <img src={`../${item.image}`} alt={item.name} />
               <p>{item.name}</p>
               <p>Quantity: {item.quantity}</p>
               <p>Price: ${item.price * item.quantity}</p>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
       <Footer />
     </section>

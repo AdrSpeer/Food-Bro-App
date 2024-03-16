@@ -1,17 +1,18 @@
 import "./Product.css";
 import data from "../../../public/data";
 import { Link, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { CartItemsContext } from "../../Context/Context";
 
 const Product = () => {
   const [filteredData, setFilterdData] = useState({});
   const [count, setCount] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems, setCartItems } = useContext(CartItemsContext);
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
@@ -30,7 +31,7 @@ const Product = () => {
     if (count > 0) {
       const newItem = { ...filteredData, quantity: count };
       setCartItems([...cartItems, newItem]);
-      setCount(0); // Reset count after adding to cart
+      setCount(0);
     }
   };
   console.log(cartItems);
