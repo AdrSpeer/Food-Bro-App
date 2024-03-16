@@ -3,6 +3,11 @@
   margin-top: 10vw;
 }
 
+.product-back {
+  color: white;
+  align-self: flex-start;
+}
+
 .product {
   color: #929292;
   display: flex;

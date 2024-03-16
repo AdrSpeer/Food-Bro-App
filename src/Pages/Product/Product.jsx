@@ -1,15 +1,17 @@
 import "./Product.css";
 import data from "../../../public/data";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const Product = () => {
   const [filteredData, setFilterdData] = useState({});
   const [count, setCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
@@ -23,8 +25,20 @@ const Product = () => {
       setCount(count - 1);
     }
   };
+
+  const addToCart = () => {
+    if (count > 0) {
+      const newItem = { ...filteredData, quantity: count };
+      setCartItems([...cartItems, newItem]);
+      setCount(0); // Reset count after adding to cart
+    }
+  };
+  console.log(cartItems);
   return (
     <section className="product">
+      <Link className="product-back" to={"/"}>
+        <ArrowBackIosIcon />
+      </Link>
       <div className="product-headline">
         {" "}
         <img src={`../${filteredData.image}`} alt={filteredData.name} />
@@ -54,7 +68,7 @@ const Product = () => {
             {filteredData.price}
           </p>
         </div>
-        <button>Buy Now</button>
+        <button onClick={addToCart}>Add to cart</button>
       </div>
 
       <Footer />
