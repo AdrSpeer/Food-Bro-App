@@ -8,7 +8,7 @@ const Cart = () => {
   return (
     <section className="cart-container">
       <div className="profile-t-container">
-        <h2 className="profile-title">WARENKORB</h2>
+        <h2 className="profile-title">YOUR CART</h2>
       </div>
       <div className="balken"></div>
       {cartItems.length === 0 ? (

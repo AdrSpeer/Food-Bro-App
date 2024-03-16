@@ -20,7 +20,7 @@ const Profile = () => {
     return (
         <section className="profile-container">
             <div className="profile-t-container">
-                <h2 className="profile-title">DEIN PROFIL</h2>
+                <h2 className="profile-title">YOUR PROFILE</h2>
             </div> 
             <div className="balken"></div>
             <div className="profile-info">
