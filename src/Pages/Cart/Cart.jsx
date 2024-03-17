@@ -18,7 +18,7 @@ const Cart = () => {
 
   const buyIt = () => {
     setCartItems([]);
-    setDeliveryMessage("Vielen Dank für Ihre Bestellung");
+    setDeliveryMessage("Thanks for your order");
     setShowProduct(false);
   };
 
