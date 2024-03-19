@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { FavoriteContext } from "../../Context/Context";
+import { CartItemsContext } from "../../Context/Context";
 
 const FoodCards = (props) => {
   const [filteredItems, setFilteredItems] = useState(data);
-
+  const [count, setCount] = useState(1);
+  const { cartItems, setCartItems } = useContext(CartItemsContext);
   useEffect(() => {
     if (props.activeCategory.length === 0) {
       setFilteredItems(data);
@@ -32,9 +34,16 @@ const FoodCards = (props) => {
     }
   };
 
+  const addToCart = (item) => {
+    if (count > 0) {
+      const itemCart = { ...item, quantity: count };
+      setCartItems([...cartItems, itemCart]);
+    }
+  };
+
   return (
     <section className="foodcard">
-      {filteredItems.map((allData) => (
+      {filteredItems?.map((allData) => (
         <div key={allData.id} className="foodcard-box">
           <div className="foodcard-rate">
             <StarIcon style={{ fill: "#ffc700" }} />
@@ -51,7 +60,10 @@ const FoodCards = (props) => {
           <p className="foodcard-shortdesc">{allData.shortdesc}</p>
           <div className="foodcard-price">
             <p>${allData.price}</p>
-            <AddCircleOutlineRoundedIcon />
+            <AddCircleOutlineRoundedIcon
+              key={allData.id}
+              onClick={() => addToCart(allData)}
+            />
           </div>
           <div className="favo-icon">
             <FavoriteIcon
