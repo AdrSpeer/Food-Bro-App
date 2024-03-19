@@ -6,6 +6,7 @@ import "./Searchbar.css";
 
 const Searchbar = () => {
   console.log(data);
+
   //   useState und useEffect
   const [searchInput, setSearchInput] = useState("");
   const [filteredData, setFilteredData] = useState([]);
@@ -15,9 +16,11 @@ const Searchbar = () => {
   const handleFocus = () => {
     setPlaceholderVisible(false);
   };
+  
   const handleBlur = () => {
     setPlaceholderVisible(true);
   };
+
   // Suche aller Gerichte
   const searchAll = (e) => {
     const inputValue = e.target.value;
@@ -54,7 +57,7 @@ const Searchbar = () => {
               </Link>
             ))
           ) : (
-            <p>No results</p>
+            <p>Keine Ergebnisse</p>
           )}
         </div>
       </div>
