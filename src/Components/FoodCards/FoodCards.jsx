@@ -29,30 +29,50 @@ const FoodCards = (props) => {
   const { favoriteItems, setFavoriteItems } = useContext(FavoriteContext);
 
   const addFavorite = (item) => {
-    console.log(favoriteItems);
     if (favoriteItems.some((itemdata) => item.id === itemdata.id)) {
       const updatedFavorites = favoriteItems.filter((itemdata) => item.id !== itemdata.id);
       setFavoriteItems(updatedFavorites);
-      setAlertSeverity('success');
-      setAlertMessage(`Produkt ${item.name} wurde aus Favoriten entfernt.`);
+      showAndHideAlert('success', `${item.name} wurde aus Favoriten entfernt.`);
     } else {
       setFavoriteItems([...favoriteItems, item]);
-      setAlertSeverity('success');
-      setAlertMessage(`Produkt ${item.name} wurde zu Favoriten hinzugefügt.`);
+      showAndHideAlert('success', `${item.name} wurde zu Favoriten hinzugefügt.`);
     }
+  };
+
+const [alertOpen, setAlertOpen] = useState(false);
+
+const showAndHideAlert = (severity, message) => {
+  setAlertSeverity(severity);
+  setAlertMessage(message);
+  setAlertOpen(true);
+
+  setTimeout(() => {
+    setAlertOpen(false);
+  }, 3000);
 };
 
 const [alertSeverity, setAlertSeverity] = useState('');
 const [alertMessage, setAlertMessage] = useState('');
 
-  const addToCart = (item) => {
-    if (count > 0) {
-      const itemCart = { ...item, quantity: count };
-      setCartItems([...cartItems, itemCart]);
-    }
-  };
+const addToCart = (item) => {
+  if (count > 0) {
+    const itemCart = { ...item, quantity: count };
+    setCartItems([...cartItems, itemCart]);
+    showAndHideAlert('success', `${item.name} wurde zum Warenkorb hinzugefügt.`);
+  } else {
+    showAndHideAlert('error', 'Bitte wählen Sie eine gültige Menge aus.');
+  }
+};
 
   return (
+    <>
+    
+    {alertOpen && (
+      <Alert severity={alertSeverity}>
+          <AlertTitle>{alertSeverity === 'success' ? 'Erfolgreich' : 'Fehlgeschlagen'}</AlertTitle>
+          {alertMessage}
+      </Alert>
+    )}
     <section className="foodcard" key={alertMessage}>
       {filteredItems?.map((allData) => (
         <div key={allData.id} className="foodcard-box">
@@ -88,14 +108,10 @@ const [alertMessage, setAlertMessage] = useState('');
           </div>
         </div>
       ))}
-      {alertMessage && (
-        <Alert severity={alertSeverity}>
-            <AlertTitle>{alertSeverity === 'success' ? 'Erfolg' : 'Info'}</AlertTitle>
-            {alertMessage}
-        </Alert>
-        )}
       </section>
+      </>
     );
+    
 };
 
 export default FoodCards;
