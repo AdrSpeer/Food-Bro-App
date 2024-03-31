@@ -8,6 +8,7 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { CartItemsContext } from "../../Context/Context";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 const Product = () => {
   const [filteredData, setFilterdData] = useState({});
@@ -51,6 +52,7 @@ const Product = () => {
             precision={0.1}
             readOnly
             max={5}
+            emptyIcon={<StarBorderIcon style={{ color: "#faaf00" }} />}
           />
         </Stack>
       </div>
