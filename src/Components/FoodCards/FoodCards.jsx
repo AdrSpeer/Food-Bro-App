@@ -7,6 +7,9 @@ import { useContext, useEffect, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { FavoriteContext } from "../../Context/Context";
 import { CartItemsContext } from "../../Context/Context";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
 
 const FoodCards = (props) => {
   const [filteredItems, setFilteredItems] = useState(data);
@@ -28,11 +31,19 @@ const FoodCards = (props) => {
   const addFavorite = (item) => {
     console.log(favoriteItems);
     if (favoriteItems.some((itemdata) => item.id === itemdata.id)) {
-      alert("Dieses Produkt befindet sich bereits in deiner Favoritenliste.");
+      const updatedFavorites = favoriteItems.filter((itemdata) => item.id !== itemdata.id);
+      setFavoriteItems(updatedFavorites);
+      setAlertSeverity('success');
+      setAlertMessage(`Produkt ${item.name} wurde aus Favoriten entfernt.`);
     } else {
       setFavoriteItems([...favoriteItems, item]);
+      setAlertSeverity('success');
+      setAlertMessage(`Produkt ${item.name} wurde zu Favoriten hinzugefügt.`);
     }
-  };
+};
+
+const [alertSeverity, setAlertSeverity] = useState('');
+const [alertMessage, setAlertMessage] = useState('');
 
   const addToCart = (item) => {
     if (count > 0) {
@@ -42,7 +53,7 @@ const FoodCards = (props) => {
   };
 
   return (
-    <section className="foodcard">
+    <section className="foodcard" key={alertMessage}>
       {filteredItems?.map((allData) => (
         <div key={allData.id} className="foodcard-box">
           <div className="foodcard-rate">
@@ -77,8 +88,14 @@ const FoodCards = (props) => {
           </div>
         </div>
       ))}
-    </section>
-  );
+      {alertMessage && (
+        <Alert severity={alertSeverity}>
+            <AlertTitle>{alertSeverity === 'success' ? 'Erfolg' : 'Info'}</AlertTitle>
+            {alertMessage}
+        </Alert>
+        )}
+      </section>
+    );
 };
 
 export default FoodCards;
