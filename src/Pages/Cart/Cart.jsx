@@ -3,6 +3,7 @@ import { createElement, useContext } from "react";
 import Footer from "../../Components/Footer/Footer";
 import { CartItemsContext } from "../../Context/Context";
 import { useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(CartItemsContext);
@@ -20,6 +21,29 @@ const Cart = () => {
     setCartItems([]);
     setDeliveryMessage("Thanks for your order");
     setShowProduct(false);
+  };
+
+  const decrementCount = (item) => {
+    if (item.quantity > 1) {
+      const updatedItem = { ...item, quantity: item.quantity - 1 };
+      const updatedCartItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id ? updatedItem : cartItem
+      );
+      setCartItems(updatedCartItems);
+    }
+  };
+
+  const incrementCount = (item) => {
+    const updatedItem = { ...item, quantity: item.quantity + 1 };
+    const updatedCartItems = cartItems.map((cartItem) =>
+      cartItem.id === item.id ? updatedItem : cartItem
+    );
+    setCartItems(updatedCartItems);
+  };
+
+  const removeFromCart = (itemId) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+    setCartItems(updatedCartItems);
   };
 
   return (
@@ -40,6 +64,15 @@ const Cart = () => {
                   <p>{item.name}</p>
                   <p>Quantity: {item.quantity}</p>
                   <p>Price: ${item.price * item.quantity}</p>
+                  <div>
+                    <div className="cart-setting">
+                      <DeleteIcon onClick={() => removeFromCart(item.id)} />
+                      <div className="cart-counter">
+                        <button onClick={() => decrementCount(item)}>-</button>
+                        <button onClick={() => incrementCount(item)}>+</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

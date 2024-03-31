@@ -62,3 +62,25 @@
 #delivery-message {
   margin: 5vw 0;
 }
+
+.cart-setting {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  margin-top: 2vw;
+}
+
+.cart-counter button {
+  padding: 0.7vw 1.9vw;
+  margin: 0 2vw;
+  border: none;
+}
+
+.cart-counter button:nth-of-type(1) {
+  background-color: #929292;
+  color: #ff8a00;
+}
+.cart-counter button:nth-of-type(2) {
+  color: white;
+  background-color: #ff8a00;
+}
