@@ -80,7 +80,12 @@ const Cart = () => {
         )}
         <div className={showProduct ? "cart-total" : "cart-hidden"}>
           <h3>Total Price: ${calculateTotalPrice()}</h3>
-          <button onClick={buyIt}>Buy Now</button>
+          <button
+            className={cartItems.length !== 0 ? "" : "cart-button-hidden"}
+            onClick={buyIt}
+          >
+            Buy Now
+          </button>
         </div>
         <h2 id="delivery-message">{deliveryMessage}</h2>
       </div>
