@@ -30,32 +30,32 @@ const Profile = () => {
                 <br />
                 <br />
                 <div className="info-cont">
-                    <p className="info-title">Vorname</p>
+                    <p className="info-title">First name</p>
                     <p className="info-text">{randomProfile.vorname}</p>
                 </div>
                 <br />
                 <div className="info-cont">
-                    <p className="info-title">Nachname</p>
+                    <p className="info-title">Last name</p>
                     <p className="info-text">{randomProfile.nachname}</p>
                 </div>
                 <br />
                 <div className="info-cont">
-                    <p className="info-title">Straße</p>
+                    <p className="info-title">Street</p>
                     <p className="info-text">{randomProfile.strasse}</p>
                 </div>
                 <br />
                 <div className="info-cont">
-                    <p className="info-title">Postleitzahl</p>
+                    <p className="info-title">Postal code</p>
                     <p className="info-text">{randomProfile.postleitzahl}</p>  
                 </div>
                 <br />
                 <div className="info-cont">
-                    <p className="info-title">Wohnort</p>
+                    <p className="info-title">Place of residence</p>
                     <p className="info-text">{randomProfile.wohnort}</p>
                 </div>
                 <br />
                 <div className="info-cont">
-                    <p className="info-title">E-Mail Adressse</p>
+                    <p className="info-title">E-Mail</p>
                     <p className="info-text">{randomProfile.email}</p>
                 </div>
                 <br />

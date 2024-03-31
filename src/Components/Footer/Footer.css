@@ -4,7 +4,7 @@
   align-items: center;
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
   background-color: #111111;
   height: 8vh;
   width: 100%;

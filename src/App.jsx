@@ -13,6 +13,8 @@ import { useState } from "react";
 import Loadingscreen from "./Components/Loadingscreen/Loadingscreen";
 import Product from "./Pages/Product/Product";
 
+import "@fontsource/inter";
+
 function App() {
   const [loading, setLoading] = useState(false);
   const [favoriteItems, setFavoriteItems] = useState([]);
