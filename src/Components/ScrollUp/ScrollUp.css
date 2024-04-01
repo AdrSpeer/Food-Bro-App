@@ -1,12 +1,17 @@
-.scroll-up {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: #ff8a00;
-  border-radius: 100%;
-  width: 25px;
-  height: 25px;
+.scrollImage {
+  position: fixed;
+  bottom: 90px;
+  right: 10px;
+  z-index: 20;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.scrollPath {
+  transition: all 0.3s ease-in-out;
+}
+
+.scrollPath:hover {
+  fill: #ff8a00;
 }
