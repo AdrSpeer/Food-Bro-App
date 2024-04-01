@@ -84,3 +84,11 @@
   color: white;
   background-color: #ff8a00;
 }
+
+.cart-img-hidden {
+  display: none;
+}
+
+.cart-img {
+  width: 65vw !important;
+}

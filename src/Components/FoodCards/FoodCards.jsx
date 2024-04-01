@@ -71,6 +71,16 @@ const FoodCards = (props) => {
     }
   };
 
+  const [expandedDescId, setExpandedDescId] = useState(null);
+
+  const toggleExpandDescription = (id) => {
+    if (expandedDescId === id) {
+      setExpandedDescId(null);
+    } else {
+      setExpandedDescId(id);
+    }
+  };
+
   return (
     <>
       {alertOpen && (
@@ -96,7 +106,19 @@ const FoodCards = (props) => {
                 <h2>{allData.name}</h2>
               </div>
             </Link>
-            <p className="foodcard-shortdesc">{allData.shortdesc}</p>
+            <p className="foodcard-shortdesc">
+              {expandedDescId === allData.id
+                ? allData.shortdesc
+                : `${allData.shortdesc.split(" ").slice(0, 3).join(" ")}...`}
+
+              <span
+                className="span-shortdesc"
+                onClick={() => toggleExpandDescription(allData.id)}
+              >
+                {expandedDescId === allData.id ? "Read less" : "Read more"}
+              </span>
+            </p>
+
             <div className="foodcard-price">
               <p>${allData.price}</p>
               <AddCircleOutlineRoundedIcon
