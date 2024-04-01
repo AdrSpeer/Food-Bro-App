@@ -7,9 +7,8 @@ import { useContext, useEffect, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { FavoriteContext } from "../../Context/Context";
 import { CartItemsContext } from "../../Context/Context";
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 
 const FoodCards = (props) => {
   const [filteredItems, setFilteredItems] = useState(data);
@@ -31,24 +30,36 @@ const FoodCards = (props) => {
   const addFavorite = (item) => {
     console.log(favoriteItems);
     if (favoriteItems.some((itemdata) => item.id === itemdata.id)) {
-      const updatedFavorites = favoriteItems.filter((itemdata) => item.id !== itemdata.id);
+      const updatedFavorites = favoriteItems.filter(
+        (itemdata) => item.id !== itemdata.id
+      );
       setFavoriteItems(updatedFavorites);
-      setAlertSeverity('success');
+      setAlertSeverity("success");
       setAlertMessage(`Produkt ${item.name} wurde aus Favoriten entfernt.`);
     } else {
       setFavoriteItems([...favoriteItems, item]);
-      setAlertSeverity('success');
+      setAlertSeverity("success");
       setAlertMessage(`Produkt ${item.name} wurde zu Favoriten hinzugefügt.`);
     }
-};
+  };
 
-const [alertSeverity, setAlertSeverity] = useState('');
-const [alertMessage, setAlertMessage] = useState('');
+  const [alertSeverity, setAlertSeverity] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
 
   const addToCart = (item) => {
     if (count > 0) {
       const itemCart = { ...item, quantity: count };
       setCartItems([...cartItems, itemCart]);
+    }
+  };
+
+  const [expandedDescId, setExpandedDescId] = useState(null);
+
+  const toggleExpandDescription = (id) => {
+    if (expandedDescId === id) {
+      setExpandedDescId(null);
+    } else {
+      setExpandedDescId(id);
     }
   };
 
@@ -68,7 +79,18 @@ const [alertMessage, setAlertMessage] = useState('');
               <h2>{allData.name}</h2>
             </div>
           </Link>
-          <p className="foodcard-shortdesc">{allData.shortdesc}</p>
+          <p className="foodcard-shortdesc">
+            {expandedDescId === allData.id
+              ? allData.shortdesc
+              : `${allData.shortdesc.split(" ").slice(0, 3).join(" ")}...`}
+
+            <span
+              className="span-shortdesc"
+              onClick={() => toggleExpandDescription(allData.id)}
+            >
+              {expandedDescId === allData.id ? "Read less" : "Read more"}
+            </span>
+          </p>
           <div className="foodcard-price">
             <p>${allData.price}</p>
             <AddCircleOutlineRoundedIcon
@@ -90,12 +112,14 @@ const [alertMessage, setAlertMessage] = useState('');
       ))}
       {alertMessage && (
         <Alert severity={alertSeverity}>
-            <AlertTitle>{alertSeverity === 'success' ? 'Erfolg' : 'Info'}</AlertTitle>
-            {alertMessage}
+          <AlertTitle>
+            {alertSeverity === "success" ? "Erfolg" : "Info"}
+          </AlertTitle>
+          {alertMessage}
         </Alert>
-        )}
-      </section>
-    );
+      )}
+    </section>
+  );
 };
 
 export default FoodCards;

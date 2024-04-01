@@ -74,3 +74,8 @@
   padding: 1vw 2vw;
   margin-bottom: 2vw;
 }
+
+.span-shortdesc {
+  display: block;
+  color: white;
+}
