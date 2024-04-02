@@ -91,10 +91,13 @@ const addToCart = (item) => {
           <p className="foodcard-shortdesc">{allData.shortdesc}</p>
           <div className="foodcard-price">
             <p>${allData.price}</p>
-            <AddCircleOutlineRoundedIcon
+            <div className="cart-icon">
+            <AddCircleOutlineRoundedIcon fontSize="inherit"
               key={allData.id}
               onClick={() => addToCart(allData)}
+              
             />
+            </div>
           </div>
           <div className="favo-icon">
             <FavoriteIcon

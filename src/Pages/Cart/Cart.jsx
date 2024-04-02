@@ -61,15 +61,15 @@ const Cart = () => {
               <div className="cart-box" key={index}>
                 <img src={`../${item.image}`} alt={item.name} />
                 <div className="cart-order">
-                  <p>{item.name}</p>
-                  <p>Quantity: {item.quantity}</p>
-                  <p>Price: ${item.price * item.quantity}</p>
+                  <p className="cart-itemname">{item.name}</p>
+                  <p className="cart-quantity">Quantity: {item.quantity}</p>
+                  <p className="cart-price">Price: ${item.price * item.quantity}</p>
                   <div>
                     <div className="cart-setting">
                       <DeleteIcon onClick={() => removeFromCart(item.id)} />
                       <div className="cart-counter">
-                        <button onClick={() => decrementCount(item)}>-</button>
-                        <button onClick={() => incrementCount(item)}>+</button>
+                        <button className="btn-minus" onClick={() => decrementCount(item)}>-</button>
+                        <button className="btn-plus" onClick={() => incrementCount(item)}>+</button>
                       </div>
                     </div>
                   </div>
@@ -79,8 +79,8 @@ const Cart = () => {
           </div>
         )}
         <div className={showProduct ? "cart-total" : "cart-hidden"}>
-          <h3>Total Price: ${calculateTotalPrice()}</h3>
-          <button
+          <h3 className="total-price">Total Price: ${calculateTotalPrice()}</h3>
+          <button id="buynow-btn"
             className={cartItems.length !== 0 ? "" : "cart-button-hidden"}
             onClick={buyIt}
           >

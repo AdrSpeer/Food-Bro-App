@@ -62,16 +62,16 @@ const Product = () => {
         <p>{count}</p>
         <button onClick={() => setCount(count + 1)}>+</button>
       </div>
-      <p>{filteredData.longdesc}</p>
+      <p className="detail-longdesc">{filteredData.longdesc}</p>
       <div className="product-buy">
         <div className="product-price">
-          <p>Price</p>
+          <p className="price-label">Price</p>
           <p id="price">
             <span>$</span>
             {filteredData.price}
           </p>
         </div>
-        <button onClick={addToCart}>Add to cart</button>
+        <button className="cart-btn" onClick={addToCart}>Add to cart</button>
       </div>
 
       <Footer />

@@ -84,3 +84,33 @@
   color: white;
   background-color: #ff8a00;
 }
+
+@media screen and (min-width: 768px) {
+  .cart-itemname {
+    font-size: 1.2rem;
+  }
+
+  .cart-quantity {
+    font-size: 1.2rem;
+  }
+
+  .cart-price {
+    font-size: 1.2rem;
+  }
+
+  .btn-minus {
+    font-size: 1.2rem;
+  }
+
+  .btn-plus {
+    font-size: 1.2rem;
+  }
+
+  .total-price {
+    font-size: 1.5rem;
+  }
+
+  #buynow-btn {
+    font-size: 1.5rem;
+  }
+}

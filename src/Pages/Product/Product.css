@@ -83,3 +83,20 @@
 .cart-button-hidden {
   display: none;
 }
+
+@media screen and (min-width: 768px) {
+  .detail-longdesc {
+    padding: 0 2vw;
+    color: white;
+    font-size: 1.2rem;
+  }
+  #price {
+    font-size: 1.8rem;
+  }
+  .price-label {
+    font-size: 1.5rem;
+  }
+  .cart-btn {
+    font-size: 1.2rem;
+  }
+}
