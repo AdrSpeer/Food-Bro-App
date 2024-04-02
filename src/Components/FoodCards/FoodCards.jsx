@@ -7,9 +7,8 @@ import { useContext, useEffect, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { FavoriteContext } from "../../Context/Context";
 import { CartItemsContext } from "../../Context/Context";
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 
 const FoodCards = (props) => {
   const [filteredItems, setFilteredItems] = useState(data);
@@ -30,91 +29,118 @@ const FoodCards = (props) => {
 
   const addFavorite = (item) => {
     if (favoriteItems.some((itemdata) => item.id === itemdata.id)) {
-      const updatedFavorites = favoriteItems.filter((itemdata) => item.id !== itemdata.id);
+      const updatedFavorites = favoriteItems.filter(
+        (itemdata) => item.id !== itemdata.id
+      );
       setFavoriteItems(updatedFavorites);
-      showAndHideAlert('success', `${item.name} wurde aus Favoriten entfernt.`);
+      showAndHideAlert("success", `${item.name} wurde aus Favoriten entfernt.`);
     } else {
       setFavoriteItems([...favoriteItems, item]);
-      showAndHideAlert('success', `${item.name} wurde zu Favoriten hinzugefügt.`);
+      showAndHideAlert(
+        "success",
+        `${item.name} wurde zu Favoriten hinzugefügt.`
+      );
     }
   };
 
-const [alertOpen, setAlertOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
 
-const showAndHideAlert = (severity, message) => {
-  setAlertSeverity(severity);
-  setAlertMessage(message);
-  setAlertOpen(true);
+  const showAndHideAlert = (severity, message) => {
+    setAlertSeverity(severity);
+    setAlertMessage(message);
+    setAlertOpen(true);
 
-  setTimeout(() => {
-    setAlertOpen(false);
-  }, 3000);
-};
+    setTimeout(() => {
+      setAlertOpen(false);
+    }, 3000);
+  };
 
-const [alertSeverity, setAlertSeverity] = useState('');
-const [alertMessage, setAlertMessage] = useState('');
+  const [alertSeverity, setAlertSeverity] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
 
-const addToCart = (item) => {
-  if (count > 0) {
-    const itemCart = { ...item, quantity: count };
-    setCartItems([...cartItems, itemCart]);
-    showAndHideAlert('success', `${item.name} wurde zum Warenkorb hinzugefügt.`);
-  } else {
-    showAndHideAlert('error', 'Bitte wählen Sie eine gültige Menge aus.');
-  }
-};
+  const addToCart = (item) => {
+    if (count > 0) {
+      const itemCart = { ...item, quantity: count };
+      setCartItems([...cartItems, itemCart]);
+      showAndHideAlert(
+        "success",
+        `${item.name} wurde zum Warenkorb hinzugefügt.`
+      );
+    } else {
+      showAndHideAlert("error", "Bitte wählen Sie eine gültige Menge aus.");
+    }
+  };
+
+  const [expandedDescId, setExpandedDescId] = useState(null);
+
+  const toggleExpandDescription = (id) => {
+    if (expandedDescId === id) {
+      setExpandedDescId(null);
+    } else {
+      setExpandedDescId(id);
+    }
+  };
 
   return (
     <>
-    
-    {alertOpen && (
-      <Alert severity={alertSeverity}>
-          <AlertTitle>{alertSeverity === 'success' ? 'Erfolgreich' : 'Fehlgeschlagen'}</AlertTitle>
+      {alertOpen && (
+        <Alert severity={alertSeverity}>
+          <AlertTitle>
+            {alertSeverity === "success" ? "Erfolgreich" : "Fehlgeschlagen"}
+          </AlertTitle>
           {alertMessage}
-      </Alert>
-    )}
-    <section className="foodcard" key={alertMessage}>
-      {filteredItems?.map((allData) => (
-        <div key={allData.id} className="foodcard-box">
-          <div className="foodcard-rate">
-            <StarIcon style={{ fill: "#ffc700" }} />
-            <p>{allData.rating}</p>
-          </div>
-          <Link to={`/product/${allData.id}`}>
-            <div className="foodcard-content">
-              <div className="foodcard-img">
-                <img src={allData.image} alt={allData.name} />
+        </Alert>
+      )}
+      <section className="foodcard" key={alertMessage}>
+        {filteredItems?.map((allData) => (
+          <div key={allData.id} className="foodcard-box">
+            <div className="foodcard-rate">
+              <StarIcon style={{ fill: "#ffc700" }} />
+              <p>{allData.rating}</p>
+            </div>
+            <Link to={`/product/${allData.id}`}>
+              <div className="foodcard-content">
+                <div className="foodcard-img">
+                  <img src={allData.image} alt={allData.name} />
+                </div>
+                <h2>{allData.name}</h2>
               </div>
-              <h2>{allData.name}</h2>
+            </Link>
+            <p className="foodcard-shortdesc">
+              {expandedDescId === allData.id
+                ? allData.shortdesc
+                : `${allData.shortdesc.split(" ").slice(0, 3).join(" ")}...`}
+
+              <span
+                className="span-shortdesc"
+                onClick={() => toggleExpandDescription(allData.id)}
+              >
+                {expandedDescId === allData.id ? "Read less" : "Read more"}
+              </span>
+            </p>
+            <div className="foodcard-price">
+              <p>${allData.price}</p>
+              <AddCircleOutlineRoundedIcon
+                fontSize="inherit"
+                key={allData.id}
+                onClick={() => addToCart(allData)}
+              />
             </div>
-          </Link>
-          <p className="foodcard-shortdesc">{allData.shortdesc}</p>
-          <div className="foodcard-price">
-            <p>${allData.price}</p>
-            <div className="cart-icon">
-            <AddCircleOutlineRoundedIcon fontSize="inherit"
-              key={allData.id}
-              onClick={() => addToCart(allData)}
-              
-            />
+            <div className="favo-icon">
+              <FavoriteIcon
+                onClick={() => addFavorite(allData)}
+                className={`${
+                  favoriteItems.some((itemdata) => allData.id === itemdata.id)
+                    ? "favo-active"
+                    : ""
+                }`}
+              />
             </div>
           </div>
-          <div className="favo-icon">
-            <FavoriteIcon
-              onClick={() => addFavorite(allData)}
-              className={`${
-                favoriteItems.some((itemdata) => allData.id === itemdata.id)
-                  ? "favo-active"
-                  : ""
-              }`}
-            />
-          </div>
-        </div>
-      ))}
+        ))}
       </section>
-      </>
-    );
-    
+    </>
+  );
 };
 
 export default FoodCards;
