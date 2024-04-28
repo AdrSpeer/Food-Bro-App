@@ -73,6 +73,7 @@
   background-color: #ff8a00;
   color: white;
   margin-bottom: 10vh;
+  cursor: pointer;
 }
 
 #price {
@@ -98,5 +99,33 @@
   }
   .cart-btn {
     font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .product img {
+    width: 25%;
+    margin-top: 1vw;
+  }
+  .detail-counter {
+    margin-bottom: 2vw;
+  }
+  .detail-longdesc {
+    text-align: center;
+  }
+  .detail-counter button {
+    width: 3vw;
+  }
+  .product-headline {
+    gap: 1vw;
+    margin-bottom: 1vw;
+  }
+  .product-buy button {
+    padding: 1vw 2vw;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff8a00;
+    color: white;
+    margin-bottom: 3vh;
   }
 }

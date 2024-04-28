@@ -122,3 +122,28 @@
     font-size: 1.5rem;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .cart-img {
+    width: 25vw !important;
+    margin-top: -7vw;
+  }
+  .cart-wrapper {
+    margin-top: 1vw;
+  }
+  .cart-box {
+    padding: 1vw;
+    gap: 5vw;
+    margin: 5vw 25vw;
+    justify-content: space-around;
+  }
+  .cart-setting {
+    gap: 0.5vw;
+    margin-top: 1vw;
+  }
+  .cart-counter button {
+    padding: 0.3vw 1vw;
+    margin: 0 0.5vw;
+    border: none;
+  }
+}

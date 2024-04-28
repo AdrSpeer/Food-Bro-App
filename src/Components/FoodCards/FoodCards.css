@@ -110,3 +110,16 @@
     font-size: 2rem;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .foodcard-box {
+    gap: 1vw;
+  }
+  .foodcard-box h2 {
+    margin-bottom: 1vw;
+  }
+  .foodcard-shortdesc {
+    padding: 0 2vw;
+    margin-bottom: 1vw;
+  }
+}
